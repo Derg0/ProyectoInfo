@@ -1,6 +1,10 @@
 #pragma once
 #include <string>
 #include <iostream>
+//lista
+#include <cstdlib>
+#include <iomanip>
+#include <list>
 class Contactos
 {
 private:
@@ -16,7 +20,7 @@ private:
 	int extension;
 
 public: 
-	int contactos[500];
+	
 	void setNombres(std::string nombres) {
 		this->Nombres = nombres;
 	}
@@ -45,7 +49,9 @@ public:
 	void setNumeroTelefonico(int numero) {
 		this->numerotelefonico = numero;
 	}
-	
+	void setextension(int ext) {
+		this->extension = ext;
+	}
 
 	std::string getnombres() {
 		return this->Nombres;
@@ -74,12 +80,6 @@ public:
 	int getnumerotelefonico() {
 		return this->numerotelefonico;
 	}
-	
-
-	void setextension(int ext) {
-		this->extension = ext;
-	}
-
 	int getextension() {
 		return this->extension;
 	}

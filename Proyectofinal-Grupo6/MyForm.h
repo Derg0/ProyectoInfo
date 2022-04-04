@@ -1,8 +1,13 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "Contactos.h"
 #include <msclr\marshal_cppstd.h>
 #include <msclr/marshal.h>
+//listas
+#include <cstdlib>
+#include <iomanip>
+#include <list>
 
 namespace ProyectofinalGrupo6 {
 
@@ -12,6 +17,12 @@ namespace ProyectofinalGrupo6 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace msclr::interop;
+	using namespace std;
+	//Arreglos
+	Contactos contactos[500];
+	list <string> contactoslista;   
+	int contador = 0; 
 
 	/// <summary>
 	/// Resumen de MyForm
@@ -81,6 +92,9 @@ namespace ProyectofinalGrupo6 {
 	private: System::Windows::Forms::ComboBox^ comboBox1;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Button^ button1Agregar;
+	private: System::Windows::Forms::TextBox^ textBoxextension;
+	private: System::Windows::Forms::Label^ label3e;
 
 
 
@@ -104,6 +118,9 @@ namespace ProyectofinalGrupo6 {
 		void InitializeComponent(void)
 		{
 			this->groupBoxagregar = (gcnew System::Windows::Forms::GroupBox());
+			this->textBoxextension = (gcnew System::Windows::Forms::TextBox());
+			this->label3e = (gcnew System::Windows::Forms::Label());
+			this->button1Agregar = (gcnew System::Windows::Forms::Button());
 			this->comboBoxnivelacad = (gcnew System::Windows::Forms::ComboBox());
 			this->textBoxcorreo = (gcnew System::Windows::Forms::TextBox());
 			this->textBoxredes = (gcnew System::Windows::Forms::TextBox());
@@ -122,27 +139,29 @@ namespace ProyectofinalGrupo6 {
 			this->Numero = (gcnew System::Windows::Forms::Label());
 			this->Apellido = (gcnew System::Windows::Forms::Label());
 			this->Nombre = (gcnew System::Windows::Forms::Label());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ContactoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->AgregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->buscarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBoxcontacto = (gcnew System::Windows::Forms::GroupBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->groupBoxagregar->SuspendLayout();
-			this->menuStrip1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
+			this->menuStrip1->SuspendLayout();
 			this->groupBoxcontacto->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// groupBoxagregar
 			// 
-			this->groupBoxagregar->Controls->Add(this->groupBox1);
+			this->groupBoxagregar->Controls->Add(this->textBoxextension);
+			this->groupBoxagregar->Controls->Add(this->label3e);
+			this->groupBoxagregar->Controls->Add(this->button1Agregar);
 			this->groupBoxagregar->Controls->Add(this->comboBoxnivelacad);
 			this->groupBoxagregar->Controls->Add(this->textBoxcorreo);
 			this->groupBoxagregar->Controls->Add(this->textBoxredes);
@@ -167,15 +186,41 @@ namespace ProyectofinalGrupo6 {
 			this->groupBoxagregar->TabIndex = 0;
 			this->groupBoxagregar->TabStop = false;
 			this->groupBoxagregar->Text = L"Agregar contacto";
-			this->groupBoxagregar->Visible = false;
 			this->groupBoxagregar->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter);
+			// 
+			// textBoxextension
+			// 
+			this->textBoxextension->Location = System::Drawing::Point(363, 83);
+			this->textBoxextension->Name = L"textBoxextension";
+			this->textBoxextension->Size = System::Drawing::Size(168, 20);
+			this->textBoxextension->TabIndex = 20;
+			this->textBoxextension->TextChanged += gcnew System::EventHandler(this, &MyForm::textBoxextension_TextChanged);
+			// 
+			// label3e
+			// 
+			this->label3e->AutoSize = true;
+			this->label3e->Location = System::Drawing::Point(298, 86);
+			this->label3e->Name = L"label3e";
+			this->label3e->Size = System::Drawing::Size(68, 13);
+			this->label3e->TabIndex = 19;
+			this->label3e->Text = L"Extension:  +";
+			// 
+			// button1Agregar
+			// 
+			this->button1Agregar->Location = System::Drawing::Point(152, 327);
+			this->button1Agregar->Name = L"button1Agregar";
+			this->button1Agregar->Size = System::Drawing::Size(75, 23);
+			this->button1Agregar->TabIndex = 18;
+			this->button1Agregar->Text = L"Agregar";
+			this->button1Agregar->UseVisualStyleBackColor = true;
+			this->button1Agregar->Click += gcnew System::EventHandler(this, &MyForm::button1Agregar_Click);
 			// 
 			// comboBoxnivelacad
 			// 
 			this->comboBoxnivelacad->FormattingEnabled = true;
-			this->comboBoxnivelacad->Items->AddRange(gcnew cli::array< System::Object^  >(8) {
-				L"Primaria", L"Basicos", L"Bachiller",
-					L"Perito", L"Tecnico", L"Licenciatura", L"Maestria", L"Doctorado"
+			this->comboBoxnivelacad->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
+				L"Bachiller", L"Perito", L"Tecnico", L"Licenciatura",
+					L"Maestria", L"Doctorado"
 			});
 			this->comboBoxnivelacad->Location = System::Drawing::Point(106, 286);
 			this->comboBoxnivelacad->Name = L"comboBoxnivelacad";
@@ -184,7 +229,7 @@ namespace ProyectofinalGrupo6 {
 			// 
 			// textBoxcorreo
 			// 
-			this->textBoxcorreo->Location = System::Drawing::Point(363, 83);
+			this->textBoxcorreo->Location = System::Drawing::Point(363, 110);
 			this->textBoxcorreo->Name = L"textBoxcorreo";
 			this->textBoxcorreo->Size = System::Drawing::Size(168, 20);
 			this->textBoxcorreo->TabIndex = 16;
@@ -242,7 +287,7 @@ namespace ProyectofinalGrupo6 {
 			// Correo
 			// 
 			this->Correo->AutoSize = true;
-			this->Correo->Location = System::Drawing::Point(261, 89);
+			this->Correo->Location = System::Drawing::Point(261, 116);
 			this->Correo->Name = L"Correo";
 			this->Correo->Size = System::Drawing::Size(96, 13);
 			this->Correo->TabIndex = 8;
@@ -321,6 +366,54 @@ namespace ProyectofinalGrupo6 {
 			this->Nombre->TabIndex = 0;
 			this->Nombre->Text = L"Nombres:";
 			// 
+			// groupBox1
+			// 
+			this->groupBox1->Controls->Add(this->label2);
+			this->groupBox1->Controls->Add(this->comboBox1);
+			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Controls->Add(this->textBox1);
+			this->groupBox1->Location = System::Drawing::Point(656, 74);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(573, 374);
+			this->groupBox1->TabIndex = 2;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Buscar";
+			this->groupBox1->Visible = false;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(30, 75);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(97, 13);
+			this->label2->TabIndex = 3;
+			this->label2->Text = L"Filtro de busqueda:";
+			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(34, 92);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(207, 21);
+			this->comboBox1->TabIndex = 2;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox1_SelectedIndexChanged);
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(30, 25);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(158, 13);
+			this->label1->TabIndex = 1;
+			this->label1->Text = L"Ingresa  los datos de busqueda:";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(34, 43);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(210, 20);
+			this->textBox1->TabIndex = 0;
+			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
@@ -329,7 +422,7 @@ namespace ProyectofinalGrupo6 {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(856, 24);
+			this->menuStrip1->Size = System::Drawing::Size(1269, 24);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -354,20 +447,6 @@ namespace ProyectofinalGrupo6 {
 			this->buscarToolStripMenuItem->Text = L"Buscar";
 			this->buscarToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::buscarToolStripMenuItem_Click);
 			// 
-			// groupBox1
-			// 
-			this->groupBox1->Controls->Add(this->label2);
-			this->groupBox1->Controls->Add(this->comboBox1);
-			this->groupBox1->Controls->Add(this->label1);
-			this->groupBox1->Controls->Add(this->textBox1);
-			this->groupBox1->Location = System::Drawing::Point(0, 0);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(573, 374);
-			this->groupBox1->TabIndex = 2;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Buscar";
-			this->groupBox1->Visible = false;
-			// 
 			// groupBoxcontacto
 			// 
 			this->groupBoxcontacto->Controls->Add(this->dataGridView1);
@@ -387,45 +466,12 @@ namespace ProyectofinalGrupo6 {
 			this->dataGridView1->Size = System::Drawing::Size(542, 323);
 			this->dataGridView1->TabIndex = 0;
 			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(34, 43);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(210, 20);
-			this->textBox1->TabIndex = 0;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(30, 25);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(158, 13);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"Ingresa  los datos de busqueda:";
-			// 
-			// comboBox1
-			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(34, 92);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(207, 21);
-			this->comboBox1->TabIndex = 2;
-			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox1_SelectedIndexChanged);
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(30, 75);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(97, 13);
-			this->label2->TabIndex = 3;
-			this->label2->Text = L"Filtro de busqueda:";
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(856, 458);
+			this->ClientSize = System::Drawing::Size(1269, 552);
+			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->groupBoxcontacto);
 			this->Controls->Add(this->groupBoxagregar);
 			this->Controls->Add(this->menuStrip1);
@@ -434,10 +480,10 @@ namespace ProyectofinalGrupo6 {
 			this->Text = L"MyForm";
 			this->groupBoxagregar->ResumeLayout(false);
 			this->groupBoxagregar->PerformLayout();
-			this->menuStrip1->ResumeLayout(false);
-			this->menuStrip1->PerformLayout();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->groupBoxcontacto->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
@@ -467,6 +513,100 @@ private: System::Void buscarToolStripMenuItem_Click(System::Object^ sender, Syst
 private: System::Void groupBoxContactos_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button1Agregar_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	//Boton agregar
+
+	try
+	{
+		if (contador < 500)
+		{
+			string nombres;
+			string apellido;
+			string nivelAca;
+			string trabajo;
+			string redes;
+			string nacionalidad;
+			string profesion;
+			string correo;
+			int numero;
+			int ext; //extension para el numero telefonico
+
+
+			nombres = marshal_as<string>(textBoxnombre->Text);
+			apellido = marshal_as<string>(textBoxapellido->Text);
+			nivelAca = marshal_as<string>(comboBoxnivelacad->Text);
+			trabajo = marshal_as<string>(textBoxtrabajo->Text);
+			redes = marshal_as<string>(textBoxredes->Text);
+			nacionalidad = marshal_as<string>(textBoxnacionalidad->Text);
+			profesion = marshal_as<string>(textBoxprofesion->Text);
+			correo = marshal_as<string>(textBoxcorreo->Text);
+
+			numero = Convert::ToInt32(textBoxnumero->Text);
+			ext = Convert::ToInt32(textBoxextension->Text);
+
+			//llenar la lista con las mismas posiciones que el arreglo
+			//string n = contactos[contador].getnombres();
+			//contactoslista.push_back(contactos[contador].getnombres());
+
+			contactos[contador].setNombres(nombres);
+			contactos[contador].setapellidos(apellido);
+			contactos[contador].setNivelAcademico(nivelAca);
+			contactos[contador].setNivelAcademico(nivelAca);
+			contactos[contador].setTrabajoActual(trabajo);
+			contactos[contador].setRedesSociales(redes);
+			contactos[contador].setNacionalidad(nacionalidad);
+			contactos[contador].setProfesion(profesion);
+			contactos[contador].setCorreoElectronico(correo);
+			contactos[contador].setNumeroTelefonico(numero);
+			contactos[contador].setextension(ext); 
+			
+			MessageBox::Show("Contacto agregado con exito");
+
+			textBoxnombre->Text = "";
+			textBoxapellido->Text = "";
+			comboBoxnivelacad->Text = "";
+			textBoxtrabajo->Text = "";
+			textBoxredes->Text = "";
+			textBoxnacionalidad->Text = "";
+			textBoxprofesion->Text = "";
+			textBoxcorreo->Text = "";
+			textBoxextension->Text = "";
+			textBoxnumero->Text = "";
+
+			contador++; 
+			
+		}
+		else
+		{
+			textBoxnombre->Enabled = false;
+			textBoxapellido->Enabled = false;
+			comboBoxnivelacad->Enabled = false;
+			textBoxtrabajo->Enabled = false;
+			textBoxredes->Enabled = false;
+			textBoxnacionalidad->Enabled = false;
+			textBoxprofesion->Enabled = false;
+			textBoxcorreo->Enabled = false;
+			textBoxextension->Enabled = false;
+			textBoxnumero->Enabled = false;
+
+			MessageBox::Show("No se pueden agregar mas contactos");
+
+		}
+
+		
+	}
+	catch (Exception^ ex) 
+	{
+		MessageBox::Show(ex->Message);
+	}
+
+
+
+
+}
+private: System::Void textBoxextension_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
