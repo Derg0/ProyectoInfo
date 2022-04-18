@@ -1,0 +1,12 @@
+C:\Users\vcela\Desktop\Informatica 2\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\Proyectofinal-Grupo6.vcxproj.AssemblyReference.cache
+C:\Users\vcela\Desktop\Informatica 2\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\Proyectofinal-Grupo6.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\vcela\Desktop\Informatica 2\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\ProyectofinalGrupo6.MyForm.resources
+C:\Users\vcela\Desktop\Informatica 2\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\Proyectofinal-Grupo6.vcxproj.GenerateResource.cache
+C:\Users\DiegoG\Desktop\Github\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\Proyectofinal-Grupo6.vcxproj.AssemblyReference.cache
+C:\Users\DiegoG\Desktop\Github\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\Proyectofinal-Grupo6.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\DiegoG\Desktop\Github\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\ProyectofinalGrupo6.MyForm.resources
+C:\Users\DiegoG\Desktop\Github\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\Proyectofinal-Grupo6.vcxproj.GenerateResource.cache
+C:\Users\DiegoG\Desktop\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\Proyectofinal-Grupo6.vcxproj.AssemblyReference.cache
+C:\Users\DiegoG\Desktop\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\Proyectofinal-Grupo6.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\DiegoG\Desktop\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\ProyectofinalGrupo6.MyForm.resources
+C:\Users\DiegoG\Desktop\Proyectofinal-Grupo6\Proyectofinal-Grupo6\x64\Debug\Proyectofinal-Grupo6.vcxproj.GenerateResource.cache

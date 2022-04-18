@@ -10,4 +10,3 @@ int main(array<String^>^ args) {
 	return 0;
 
 }
-
