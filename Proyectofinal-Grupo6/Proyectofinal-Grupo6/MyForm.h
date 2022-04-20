@@ -131,6 +131,18 @@ namespace ProyectofinalGrupo6 {
 	private: System::Windows::Forms::TextBox^ contactoeditar;
 	private: System::Windows::Forms::Label^ editar;
 	private: System::Windows::Forms::Button^ botoneditar;
+	private: System::Windows::Forms::Button^ botonbuscar;
+	private: System::Windows::Forms::DataGridView^ buscar;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column13;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column14;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column15;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column16;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column17;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column18;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column19;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column20;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column21;
 
 
 
@@ -212,6 +224,18 @@ namespace ProyectofinalGrupo6 {
 			this->Apellido = (gcnew System::Windows::Forms::Label());
 			this->Nombre = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->botonbuscar = (gcnew System::Windows::Forms::Button());
+			this->buscar = (gcnew System::Windows::Forms::DataGridView());
+			this->Column12 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column13 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column14 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column15 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column16 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column17 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column18 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column19 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column20 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column21 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -240,6 +264,7 @@ namespace ProyectofinalGrupo6 {
 			this->numeroborrar = (gcnew System::Windows::Forms::TextBox());
 			this->groupBoxagregar->SuspendLayout();
 			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->buscar))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->borrar->SuspendLayout();
@@ -490,17 +515,93 @@ namespace ProyectofinalGrupo6 {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->botonbuscar);
+			this->groupBox1->Controls->Add(this->buscar);
 			this->groupBox1->Controls->Add(this->label2);
 			this->groupBox1->Controls->Add(this->comboBox1);
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Controls->Add(this->textBox1);
-			this->groupBox1->Location = System::Drawing::Point(656, 74);
+			this->groupBox1->Location = System::Drawing::Point(61, 74);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(573, 374);
+			this->groupBox1->Size = System::Drawing::Size(1168, 374);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Buscar";
 			this->groupBox1->Visible = false;
+			// 
+			// botonbuscar
+			// 
+			this->botonbuscar->Location = System::Drawing::Point(264, 42);
+			this->botonbuscar->Name = L"botonbuscar";
+			this->botonbuscar->Size = System::Drawing::Size(75, 23);
+			this->botonbuscar->TabIndex = 5;
+			this->botonbuscar->Text = L"Buscar";
+			this->botonbuscar->UseVisualStyleBackColor = true;
+			this->botonbuscar->Click += gcnew System::EventHandler(this, &MyForm::botonbuscar_Click);
+			// 
+			// buscar
+			// 
+			this->buscar->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->buscar->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->buscar->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(10) {
+				this->Column12, this->Column13,
+					this->Column14, this->Column15, this->Column16, this->Column17, this->Column18, this->Column19, this->Column20, this->Column21
+			});
+			this->buscar->Location = System::Drawing::Point(27, 138);
+			this->buscar->Name = L"buscar";
+			this->buscar->Size = System::Drawing::Size(1116, 202);
+			this->buscar->TabIndex = 4;
+			this->buscar->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::buscar_CellContentClick);
+			// 
+			// Column12
+			// 
+			this->Column12->HeaderText = L"Nombres";
+			this->Column12->Name = L"Column12";
+			// 
+			// Column13
+			// 
+			this->Column13->HeaderText = L"Apellidos";
+			this->Column13->Name = L"Column13";
+			// 
+			// Column14
+			// 
+			this->Column14->HeaderText = L"Trabajo";
+			this->Column14->Name = L"Column14";
+			// 
+			// Column15
+			// 
+			this->Column15->HeaderText = L"Nivel academico";
+			this->Column15->Name = L"Column15";
+			// 
+			// Column16
+			// 
+			this->Column16->HeaderText = L"Nacionalidad";
+			this->Column16->Name = L"Column16";
+			// 
+			// Column17
+			// 
+			this->Column17->HeaderText = L"Profesion";
+			this->Column17->Name = L"Column17";
+			// 
+			// Column18
+			// 
+			this->Column18->HeaderText = L"Correo";
+			this->Column18->Name = L"Column18";
+			// 
+			// Column19
+			// 
+			this->Column19->HeaderText = L"Extension";
+			this->Column19->Name = L"Column19";
+			// 
+			// Column20
+			// 
+			this->Column20->HeaderText = L"Numero";
+			this->Column20->Name = L"Column20";
+			// 
+			// Column21
+			// 
+			this->Column21->HeaderText = L"Redes sociales";
+			this->Column21->Name = L"Column21";
 			// 
 			// label2
 			// 
@@ -514,6 +615,10 @@ namespace ProyectofinalGrupo6 {
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
+				L"Nombres", L"Apellidos", L"Trabajo", L"Nivel academico",
+					L"Nacionalidad", L"Profesion", L"Correo", L"Extension", L"Numero", L"Redes sociales"
+			});
 			this->comboBox1->Location = System::Drawing::Point(34, 92);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(207, 21);
@@ -535,6 +640,7 @@ namespace ProyectofinalGrupo6 {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(210, 20);
 			this->textBox1->TabIndex = 0;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
 			// 
 			// menuStrip1
 			// 
@@ -699,8 +805,8 @@ namespace ProyectofinalGrupo6 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1269, 552);
-			this->Controls->Add(this->groupBoxagregar);
 			this->Controls->Add(this->groupBox1);
+			this->Controls->Add(this->groupBoxagregar);
 			this->Controls->Add(this->borrar);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->menuStrip1);
@@ -711,6 +817,7 @@ namespace ProyectofinalGrupo6 {
 			this->groupBoxagregar->PerformLayout();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->buscar))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
@@ -1307,5 +1414,576 @@ private: System::Void botoneditar_Click(System::Object^ sender, System::EventArg
 
 
 }
+private: System::Void botonbuscar_Click(System::Object^ sender, System::EventArgs^ e) {
+	string buscarnombre;
+	buscarnombre = marshal_as<string>(textBox1->Text);
+
+	list <string> nombrebuscar;
+	nombrebuscar = nombrelista;
+	list <string> apellidosbuscar;
+	apellidosbuscar = apellidoslista;
+	list <string> trabajobuscar;
+	trabajobuscar = trabajolista;
+	list <string> nivelacabuscar;
+	nivelacabuscar = nivelacadlista;
+	list <string> nacionalidadbuscar;
+	nacionalidadbuscar = nacionalidadlista;
+	list <string> profesionbuscar;
+	profesionbuscar = profesionlista;
+	list <string> correobuscar;
+	correobuscar = correolista;
+	list <string> extensionbuscar;
+	extensionbuscar = extensionlista;
+	list <string> telefonobuscar;
+	telefonobuscar = telefonolista;
+	list <string> redesbuscar;
+	redesbuscar = redeslista;
+
+	int contadorbuscar = 0; 
+	
+	string filtro;
+	filtro = marshal_as<string>(comboBox1->Text);
+
+	for (int i = 0; i < nombrebuscar.size(); i++)
+	{
+		if (i == 0)
+		{
+			buscar->Rows->Clear();
+			for (int j = 0; j < nombrebuscar.size(); j++)
+			{
+				buscar->Rows->Add();
+			}
+		}
+	
+	
+	if (filtro == "Nombres")
+	{
+		for (int i = 0; i < nombrelista.size(); i++)
+		{
+			if (buscarnombre == *nombrebuscar.cbegin())
+			{
+				//como es igual, imprimo y luego borro el dato de la lista
+				//auto igual = 
+				buscar[0, contadorbuscar]->Value = marshal_as<String^>(*nombrebuscar.begin());
+				buscar[1, contadorbuscar]->Value = marshal_as<String^>(*apellidosbuscar.begin());
+				buscar[2, contadorbuscar]->Value = marshal_as<String^>(*trabajobuscar.begin());
+				buscar[3, contadorbuscar]->Value = marshal_as<String^>(*nivelacabuscar.begin());
+				buscar[4, contadorbuscar]->Value = marshal_as<String^>(*nacionalidadbuscar.begin());
+				buscar[5, contadorbuscar]->Value = marshal_as<String^>(*profesionbuscar.begin());
+				buscar[6, contadorbuscar]->Value = marshal_as<String^>(*correobuscar.begin());
+				buscar[7, contadorbuscar]->Value = marshal_as<String^>(*extensionbuscar.begin());
+				buscar[8, contadorbuscar]->Value = marshal_as<String^>(*telefonobuscar.begin());
+				buscar[9, contadorbuscar]->Value = marshal_as<String^>(*redesbuscar.begin());
+
+				contadorbuscar++;
+
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+			else
+			{
+				//si no es igual solo lo borro 
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+
+		}
+	}
+
+	if (filtro == "Apellidos")
+	{
+		for (int i = 0; i < nombrelista.size(); i++)
+		{
+			if (buscarnombre == *apellidosbuscar.cbegin())
+			{
+				//como es igual, imprimo y luego borro el dato de la lista
+				//auto igual = 
+				buscar[0, contadorbuscar]->Value = marshal_as<String^>(*nombrebuscar.begin());
+				buscar[1, contadorbuscar]->Value = marshal_as<String^>(*apellidosbuscar.begin());
+				buscar[2, contadorbuscar]->Value = marshal_as<String^>(*trabajobuscar.begin());
+				buscar[3, contadorbuscar]->Value = marshal_as<String^>(*nivelacabuscar.begin());
+				buscar[4, contadorbuscar]->Value = marshal_as<String^>(*nacionalidadbuscar.begin());
+				buscar[5, contadorbuscar]->Value = marshal_as<String^>(*profesionbuscar.begin());
+				buscar[6, contadorbuscar]->Value = marshal_as<String^>(*correobuscar.begin());
+				buscar[7, contadorbuscar]->Value = marshal_as<String^>(*extensionbuscar.begin());
+				buscar[8, contadorbuscar]->Value = marshal_as<String^>(*telefonobuscar.begin());
+				buscar[9, contadorbuscar]->Value = marshal_as<String^>(*redesbuscar.begin());
+
+				contadorbuscar++;
+
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+			else
+			{
+				//si no es igual solo lo borro 
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+
+		}
+
+	}
+
+	if (filtro == "Trabajo")
+	{
+		for (int i = 0; i < nombrelista.size(); i++)
+		{
+			if (buscarnombre == *trabajobuscar.cbegin())
+			{
+				//como es igual, imprimo y luego borro el dato de la lista
+				//auto igual = 
+				buscar[0, contadorbuscar]->Value = marshal_as<String^>(*nombrebuscar.begin());
+				buscar[1, contadorbuscar]->Value = marshal_as<String^>(*apellidosbuscar.begin());
+				buscar[2, contadorbuscar]->Value = marshal_as<String^>(*trabajobuscar.begin());
+				buscar[3, contadorbuscar]->Value = marshal_as<String^>(*nivelacabuscar.begin());
+				buscar[4, contadorbuscar]->Value = marshal_as<String^>(*nacionalidadbuscar.begin());
+				buscar[5, contadorbuscar]->Value = marshal_as<String^>(*profesionbuscar.begin());
+				buscar[6, contadorbuscar]->Value = marshal_as<String^>(*correobuscar.begin());
+				buscar[7, contadorbuscar]->Value = marshal_as<String^>(*extensionbuscar.begin());
+				buscar[8, contadorbuscar]->Value = marshal_as<String^>(*telefonobuscar.begin());
+				buscar[9, contadorbuscar]->Value = marshal_as<String^>(*redesbuscar.begin());
+
+				contadorbuscar++;
+
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+			else
+			{
+				//si no es igual solo lo borro 
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+
+		}
+	}
+
+	if (filtro == "Nivel academico")
+	{
+		for (int i = 0; i < nombrelista.size(); i++)
+		{
+			if (buscarnombre == *nivelacabuscar.cbegin())
+			{
+				//como es igual, imprimo y luego borro el dato de la lista
+				//auto igual = 
+				buscar[0, contadorbuscar]->Value = marshal_as<String^>(*nombrebuscar.begin());
+				buscar[1, contadorbuscar]->Value = marshal_as<String^>(*apellidosbuscar.begin());
+				buscar[2, contadorbuscar]->Value = marshal_as<String^>(*trabajobuscar.begin());
+				buscar[3, contadorbuscar]->Value = marshal_as<String^>(*nivelacabuscar.begin());
+				buscar[4, contadorbuscar]->Value = marshal_as<String^>(*nacionalidadbuscar.begin());
+				buscar[5, contadorbuscar]->Value = marshal_as<String^>(*profesionbuscar.begin());
+				buscar[6, contadorbuscar]->Value = marshal_as<String^>(*correobuscar.begin());
+				buscar[7, contadorbuscar]->Value = marshal_as<String^>(*extensionbuscar.begin());
+				buscar[8, contadorbuscar]->Value = marshal_as<String^>(*telefonobuscar.begin());
+				buscar[9, contadorbuscar]->Value = marshal_as<String^>(*redesbuscar.begin());
+
+				contadorbuscar++;
+
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+			else
+			{
+				//si no es igual solo lo borro 
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+
+		}
+	}
+
+	if (filtro == "Nacionalidad")
+	{
+		for (int i = 0; i < nombrelista.size(); i++)
+		{
+			if (buscarnombre == *nacionalidadbuscar.cbegin())
+			{
+				//como es igual, imprimo y luego borro el dato de la lista
+				//auto igual = 
+				buscar[0, contadorbuscar]->Value = marshal_as<String^>(*nombrebuscar.begin());
+				buscar[1, contadorbuscar]->Value = marshal_as<String^>(*apellidosbuscar.begin());
+				buscar[2, contadorbuscar]->Value = marshal_as<String^>(*trabajobuscar.begin());
+				buscar[3, contadorbuscar]->Value = marshal_as<String^>(*nivelacabuscar.begin());
+				buscar[4, contadorbuscar]->Value = marshal_as<String^>(*nacionalidadbuscar.begin());
+				buscar[5, contadorbuscar]->Value = marshal_as<String^>(*profesionbuscar.begin());
+				buscar[6, contadorbuscar]->Value = marshal_as<String^>(*correobuscar.begin());
+				buscar[7, contadorbuscar]->Value = marshal_as<String^>(*extensionbuscar.begin());
+				buscar[8, contadorbuscar]->Value = marshal_as<String^>(*telefonobuscar.begin());
+				buscar[9, contadorbuscar]->Value = marshal_as<String^>(*redesbuscar.begin());
+
+				contadorbuscar++;
+
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+			else
+			{
+				//si no es igual solo lo borro 
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+
+		}
+	}
+
+	if (filtro == "Profesion")
+	{
+		for (int i = 0; i < nombrelista.size(); i++)
+		{
+			if (buscarnombre == *profesionbuscar.cbegin())
+			{
+				//como es igual, imprimo y luego borro el dato de la lista
+				//auto igual = 
+				buscar[0, contadorbuscar]->Value = marshal_as<String^>(*nombrebuscar.begin());
+				buscar[1, contadorbuscar]->Value = marshal_as<String^>(*apellidosbuscar.begin());
+				buscar[2, contadorbuscar]->Value = marshal_as<String^>(*trabajobuscar.begin());
+				buscar[3, contadorbuscar]->Value = marshal_as<String^>(*nivelacabuscar.begin());
+				buscar[4, contadorbuscar]->Value = marshal_as<String^>(*nacionalidadbuscar.begin());
+				buscar[5, contadorbuscar]->Value = marshal_as<String^>(*profesionbuscar.begin());
+				buscar[6, contadorbuscar]->Value = marshal_as<String^>(*correobuscar.begin());
+				buscar[7, contadorbuscar]->Value = marshal_as<String^>(*extensionbuscar.begin());
+				buscar[8, contadorbuscar]->Value = marshal_as<String^>(*telefonobuscar.begin());
+				buscar[9, contadorbuscar]->Value = marshal_as<String^>(*redesbuscar.begin());
+
+				contadorbuscar++;
+
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+			else
+			{
+				//si no es igual solo lo borro 
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+
+		}
+	}
+
+	if (filtro == "Correo")
+	{
+		for (int i = 0; i < nombrelista.size(); i++)
+		{
+			if (buscarnombre == *correobuscar.cbegin())
+			{
+				//como es igual, imprimo y luego borro el dato de la lista
+				//auto igual = 
+				buscar[0, contadorbuscar]->Value = marshal_as<String^>(*nombrebuscar.begin());
+				buscar[1, contadorbuscar]->Value = marshal_as<String^>(*apellidosbuscar.begin());
+				buscar[2, contadorbuscar]->Value = marshal_as<String^>(*trabajobuscar.begin());
+				buscar[3, contadorbuscar]->Value = marshal_as<String^>(*nivelacabuscar.begin());
+				buscar[4, contadorbuscar]->Value = marshal_as<String^>(*nacionalidadbuscar.begin());
+				buscar[5, contadorbuscar]->Value = marshal_as<String^>(*profesionbuscar.begin());
+				buscar[6, contadorbuscar]->Value = marshal_as<String^>(*correobuscar.begin());
+				buscar[7, contadorbuscar]->Value = marshal_as<String^>(*extensionbuscar.begin());
+				buscar[8, contadorbuscar]->Value = marshal_as<String^>(*telefonobuscar.begin());
+				buscar[9, contadorbuscar]->Value = marshal_as<String^>(*redesbuscar.begin());
+
+				contadorbuscar++;
+
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+			else
+			{
+				//si no es igual solo lo borro 
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+
+		}
+	}
+
+	if (filtro == "Extension")
+	{
+		for (int i = 0; i < nombrelista.size(); i++)
+		{
+			if (buscarnombre == *extensionbuscar.cbegin())
+			{
+				//como es igual, imprimo y luego borro el dato de la lista
+				//auto igual = 
+				buscar[0, contadorbuscar]->Value = marshal_as<String^>(*nombrebuscar.begin());
+				buscar[1, contadorbuscar]->Value = marshal_as<String^>(*apellidosbuscar.begin());
+				buscar[2, contadorbuscar]->Value = marshal_as<String^>(*trabajobuscar.begin());
+				buscar[3, contadorbuscar]->Value = marshal_as<String^>(*nivelacabuscar.begin());
+				buscar[4, contadorbuscar]->Value = marshal_as<String^>(*nacionalidadbuscar.begin());
+				buscar[5, contadorbuscar]->Value = marshal_as<String^>(*profesionbuscar.begin());
+				buscar[6, contadorbuscar]->Value = marshal_as<String^>(*correobuscar.begin());
+				buscar[7, contadorbuscar]->Value = marshal_as<String^>(*extensionbuscar.begin());
+				buscar[8, contadorbuscar]->Value = marshal_as<String^>(*telefonobuscar.begin());
+				buscar[9, contadorbuscar]->Value = marshal_as<String^>(*redesbuscar.begin());
+
+				contadorbuscar++;
+
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+			else
+			{
+				//si no es igual solo lo borro 
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+
+		}
+	}
+
+	if (filtro == "Numero")
+	{
+		for (int i = 0; i < nombrelista.size(); i++)
+		{
+			if (buscarnombre == *telefonobuscar.cbegin())
+			{
+				//como es igual, imprimo y luego borro el dato de la lista
+				//auto igual = 
+				buscar[0, contadorbuscar]->Value = marshal_as<String^>(*nombrebuscar.begin());
+				buscar[1, contadorbuscar]->Value = marshal_as<String^>(*apellidosbuscar.begin());
+				buscar[2, contadorbuscar]->Value = marshal_as<String^>(*trabajobuscar.begin());
+				buscar[3, contadorbuscar]->Value = marshal_as<String^>(*nivelacabuscar.begin());
+				buscar[4, contadorbuscar]->Value = marshal_as<String^>(*nacionalidadbuscar.begin());
+				buscar[5, contadorbuscar]->Value = marshal_as<String^>(*profesionbuscar.begin());
+				buscar[6, contadorbuscar]->Value = marshal_as<String^>(*correobuscar.begin());
+				buscar[7, contadorbuscar]->Value = marshal_as<String^>(*extensionbuscar.begin());
+				buscar[8, contadorbuscar]->Value = marshal_as<String^>(*telefonobuscar.begin());
+				buscar[9, contadorbuscar]->Value = marshal_as<String^>(*redesbuscar.begin());
+
+				contadorbuscar++;
+
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+			else
+			{
+				//si no es igual solo lo borro 
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+
+		}
+	}
+
+	if (filtro == "Redes sociales")
+	{
+		for (int i = 0; i < nombrelista.size(); i++)
+		{
+			if (buscarnombre == *redesbuscar.cbegin()) 
+			{
+				//como es igual, imprimo y luego borro el dato de la lista
+				//auto igual = 
+				buscar[0, contadorbuscar]->Value = marshal_as<String^>(*nombrebuscar.begin());
+				buscar[1, contadorbuscar]->Value = marshal_as<String^>(*apellidosbuscar.begin());
+				buscar[2, contadorbuscar]->Value = marshal_as<String^>(*trabajobuscar.begin());
+				buscar[3, contadorbuscar]->Value = marshal_as<String^>(*nivelacabuscar.begin());
+				buscar[4, contadorbuscar]->Value = marshal_as<String^>(*nacionalidadbuscar.begin());
+				buscar[5, contadorbuscar]->Value = marshal_as<String^>(*profesionbuscar.begin());
+				buscar[6, contadorbuscar]->Value = marshal_as<String^>(*correobuscar.begin());
+				buscar[7, contadorbuscar]->Value = marshal_as<String^>(*extensionbuscar.begin());
+				buscar[8, contadorbuscar]->Value = marshal_as<String^>(*telefonobuscar.begin());
+				buscar[9, contadorbuscar]->Value = marshal_as<String^>(*redesbuscar.begin());
+
+				contadorbuscar++;
+
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+			else
+			{
+				//si no es igual solo lo borro 
+				nombrebuscar.erase(nombrebuscar.begin());
+				apellidosbuscar.erase(apellidosbuscar.begin());
+				trabajobuscar.erase(trabajobuscar.begin());
+				nivelacabuscar.erase(nivelacabuscar.begin());
+				nacionalidadbuscar.erase(nacionalidadbuscar.begin());
+				profesionbuscar.erase(profesionbuscar.begin());
+				correobuscar.erase(correobuscar.begin());
+				extensionbuscar.erase(extensionbuscar.begin());
+				telefonobuscar.erase(telefonobuscar.begin());
+				redesbuscar.erase(redesbuscar.begin());
+
+			}
+
+		}
+	}
+	}
+
+}
+private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void buscar_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
 };
 }
+
+
